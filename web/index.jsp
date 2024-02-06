@@ -18,7 +18,7 @@
                        Please try again"/>
             </c:when>
             <c:otherwise>
-                <h2><c:out value="Welcome admin !"/></h2>
+                <h2><c:out value="Welcome ${loginBean.userName} !"/></h2>
                 <c:out value="You are successfully logged in"/>
                 <c:set var="displayForm" value="${false}"/>
             </c:otherwise>
