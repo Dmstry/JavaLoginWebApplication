@@ -5,18 +5,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
     </head>
+    <%String errMsg = null; %>
+    <%if ("POST".equalsIgnoreCase(request.getMethod()) && request.getParameter("submit") != null) { %>
+    <jsp:useBean id="loginBean" class="ua.edu.znu.lab.bean.LoginBean">
+        <jsp:setProperty name="loginBean" property="*"/>
+    </jsp:useBean>
     <%
-        String errMsg = null;
-        if ("POST".equalsIgnoreCase(request.getMethod()) && request.getParameter("submit") != null) { 
-            String userName = request.getParameter("userName");
-            String password = request.getParameter("password");
-        if ("user".equalsIgnoreCase(userName) && "user".equalsIgnoreCase(password)) {
-            out.println("Welcome admin !");
+        if (loginBean.isValidUser()) {
+            out.println("<h2>Welcome admin !</h2>");
+            out.println("You are successfully logged in");
             return;
-            } else {
-                errMsg = "Invalid user id or password. Please try again";
-            }
+        } else {
+            errMsg = "Invalid user id or password. Please try again";
         }
+    %>
+    <%
+    }
     %>
     <body>
         <h2>Login:</h2>
