@@ -47,6 +47,7 @@ public class LoginBean {
                         return true;
                     }
                 }
+                scanner.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

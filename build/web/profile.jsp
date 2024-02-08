@@ -11,7 +11,7 @@
         <jsp:setProperty name="loginBean" property="*" />
     </jsp:useBean>
     <body>
-        <h1>Welcom <c:out value="${loginBean.userName}" />!</h1>
+        <h1>Welcome <c:out value="${sessionScope.userName}" />!</h1>
         <p>You are successfully logged in</p>
         <h3>Hello I'm a profile page!!!</h3>
     </body>
